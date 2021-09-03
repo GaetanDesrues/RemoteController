@@ -5,7 +5,7 @@
 ### With docker
 ```bash
 docker pull gdesrues/remote_controller
-docker build -t ctrl . && docker run --rm ctrl
+docker build -t ctrl . && docker run --rm --device /dev/input/js1 ctrl
 ```
 
 ### From sources

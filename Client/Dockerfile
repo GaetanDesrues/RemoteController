@@ -8,4 +8,8 @@ ADD . /home/$USER_NAME/app
 
 RUN pip install --upgrade --user pip && pip install --user -r requirements.txt
 
-CMD ["python", "start.py"]
+EXPOSE 5005:5005
+ENV REM_IP="127.0.0.1"
+ENV REM_PORT=5005
+
+ENTRYPOINT ["python", "start.py"]
