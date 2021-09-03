@@ -10,7 +10,7 @@ INP="/dev/input/$(ls /dev/input | grep js | tail -n 1)"
 IMG=gdesrues/remote_controller
 
 # Pull image from docker hub
-#docker pull $IMG
+docker pull $IMG
 
 # Build image
 docker build -t $IMG $ROOT/Client
