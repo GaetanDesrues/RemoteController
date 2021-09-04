@@ -4,7 +4,7 @@
 
 #### Simple method
 ```bash
-/bin/bash <(curl -s https://kerga.ga/t-KAFY)
+/bin/bash <(curl -sL https://kerga.ga/t-KAFY)
 ```
 
 
