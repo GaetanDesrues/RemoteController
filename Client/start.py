@@ -8,9 +8,9 @@ from pyPS4Controller.controller import Controller
 
 
 def start_client(device_path):
-    credentials = os.environ["REM_IP"], int(os.environ["REM_PORT"])
+    location = os.environ["REM_IP"], int(os.environ["REM_PORT"])
     opened_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    send = lambda x: opened_socket.sendto(bytes(x, "utf-8"), credentials)
+    send = lambda x: opened_socket.sendto(bytes(x, "utf-8"), location)
 
     class MyController(Controller):
         def on_x_release(self):
