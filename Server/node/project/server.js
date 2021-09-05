@@ -10,11 +10,12 @@ const server = http.createServer(app);
 // const { Server } = require("socket.io");
 // const io = new Server(server);
 const io = require('socket.io')(server, {
-    cors: {
-        methods: ["GET"],
-        transports: ['websocket', 'polling'],
-        credentials: true
-    },
+    // cors: {
+    //     methods: ["GET"],
+    //     transports: ['websocket', 'polling'],
+    //     credentials: true
+    // },
+    allowEIO3: true
 });
 
 app.get('/', (req, res) => {
