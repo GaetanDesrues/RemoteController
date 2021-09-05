@@ -1,4 +1,4 @@
 treefiles==0.1.83
 gevent_socketio==0.3.6
 pyPS4Controller==1.2.5
-socketio
+python-socketio==4.4.0
