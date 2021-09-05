@@ -11,8 +11,9 @@ sio = socketio.AsyncClient()
 async def connect():
     log.info("connection established")
 
-    for i in range(300):
-        await emit(f"Coucou {i}")
+    await emit("Hello")
+    # for i in range(300):
+    #     await emit(f"Coucou {i}")
 
 
 @sio.event
@@ -27,13 +28,14 @@ async def emit(msg):
 
 
 async def main():
-    await sio.connect("http://127.0.0.1:5011")
+    await sio.connect("https://loc.kerga.ga")
+    # await sio.connect("http://127.0.0.1:5011")
     await sio.wait()
 
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.DEBUG)
-    logging.getLogger("asyncio").setLevel(logging.INFO)
+    # logging.getLogger("asyncio").setLevel(logging.INFO)
     log = tf.get_logger()
 
     asyncio.run(main())

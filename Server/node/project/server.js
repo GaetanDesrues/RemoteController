@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
 
 
 io.on('connection', (socket) => {
-    console.log('a user connected');
+    console.log('a user connected' + io.protocol);
 
     socket.on('updt', (msg) => {
         console.log('received message: ' + msg["msg"]);
