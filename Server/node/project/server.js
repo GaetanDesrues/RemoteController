@@ -15,7 +15,6 @@ const io = require('socket.io')(server, {
         transports: ['websocket', 'polling'],
         credentials: true
     },
-    allowEIO3: true
 });
 
 app.get('/', (req, res) => {
