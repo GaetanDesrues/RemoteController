@@ -25,14 +25,16 @@
 
     function changePosition(pos) {
         circlePos = pos
-        if ( circlePos.left > canvas.width ) {
+        if ( circlePos.left > canvas.width) {
             circlePos.left = 0;
-        }
-        if ( circlePos.top > canvas.height ) {
+        } else if ( circlePos.left < 0 ) {
+            circlePos.left = canvas.width;
+        } else if ( circlePos.top > canvas.height ) {
             circlePos.top = 0;
+        } else if ( circlePos.top < 0 ) {
+            circlePos.top = canvas.height;
         }
-        renderCircle( circlePos );
-        console.log(circlePos);
+        renderCircle(circlePos);
     }
     renderCircle(circlePos);
 
