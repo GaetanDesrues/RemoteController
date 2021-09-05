@@ -16,11 +16,11 @@ app.get('/', (req, res) => {
 
 
 io.on('connection', (socket) => {
-    console.log('a user connected' + io.protocol);
+    console.log('a user connected');
 
     socket.on('updt', (msg) => {
         console.log('received message: ' + msg["msg"]);
-        io.emit('updt', msg);  // broadcast after receive
+        io.emit('pupdt', msg);  // broadcast after receive
     });
 
     socket.on('disconnect', () => {

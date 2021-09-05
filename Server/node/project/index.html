@@ -37,17 +37,13 @@
   //   }
   // });
 
-  socket.on('updt', function(msg) {
+  socket.on('pupdt', function(msg) {
     var item = document.createElement('li');
     item.textContent = msg["msg"];
     console.log("html socket");
     messages.appendChild(item);
     window.scrollTo(0, document.body.scrollHeight);
   });
-
-  const revisionNumber = socket.protocol;
-  console.log("revisin number: " + revisionNumber);
-
 </script>
 </body>
 </html>
