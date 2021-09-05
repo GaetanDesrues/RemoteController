@@ -17,10 +17,10 @@ app.get('/', (req, res) => {
 io.on('connection', (socket) => {
     console.log('a user connected');
 
-    // socket.on('updt', (msg) => {
-    //     console.log('received message: ' + msg["msg"]);
-    //     io.emit('pupdt', msg);  // broadcast after receive
-    // });
+    socket.on('updt', (msg) => {
+        console.log('received message: ' + msg["msg"]);
+        io.emit('pupdt', msg);  // broadcast after receive
+    });
 
     socket.on('disconnect', () => {
         console.log('user disconnected');

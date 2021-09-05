@@ -42,7 +42,7 @@
 
     var socket = io();
 
-    socket.on('updt', function(msg) {
+    socket.on('pupdt', function(msg) {
         changePosition({
         	left: circlePos.left + parseInt(msg["x"]),
         	top: circlePos.top + parseInt(msg["y"])
