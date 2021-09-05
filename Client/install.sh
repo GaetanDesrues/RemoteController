@@ -2,13 +2,13 @@
 
 if [ ! -d "venv" ]; then
 	python -m venv venv
-	git clone git@github.com:GaetanDesrues/RemoteController.git
-
 	source venv/bin/activate
+	git clone git@github.com:GaetanDesrues/RemoteController.git
+	cd RemoteController/Client
 	pip install -r requirements.txt
 else
-	cd RemoteController/Client
 	source venv/bin/activate
+	cd RemoteController/Client
 fi
 
 # Get last input event
