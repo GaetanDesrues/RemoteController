@@ -7,8 +7,17 @@ const port = 5011;
 
 const server = http.createServer(app);
 
-const { Server } = require("socket.io");
-const io = new Server(server);
+// const { Server } = require("socket.io");
+// const io = new Server(server);
+const io = require('socket.io')(server, {
+    cors: {
+        origin: "https://loc.kerga.ga",
+        methods: ["GET"],
+        transports: ['websocket', 'polling'],
+        credentials: true
+    },
+    allowEIO3: true
+});
 
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');

@@ -35,7 +35,7 @@ async def main():
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.DEBUG)
-    # logging.getLogger("asyncio").setLevel(logging.INFO)
+    logging.getLogger("asyncio").setLevel(logging.INFO)
     log = tf.get_logger()
 
     asyncio.run(main())
