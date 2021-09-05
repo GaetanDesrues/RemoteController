@@ -10,31 +10,26 @@ const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server);
 
-// const server = http.createServer((req, res) => {
-// 	res.statusCode = 200;
-//   	res.setHeader('Content-Type', 'text/plain');
-//   	res.end('Sysmon App is Up and Running!\n');
-// });
-
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/index.html');
+    res.sendFile(__dirname + '/index.html');
 });
 
-// io.on('connection', (socket) => {
-//   console.log('a user connected');
-//   socket.on('disconnect', () => {
-//     console.log('user disconnected');
-//   });
-// });
 
 io.on('connection', (socket) => {
-  socket.on('chat message', (msg) => {
-    console.log('message: ' + msg);
-  });
+    console.log('a user connected');
+
+    socket.on('updt', (msg) => {
+        console.log('received message: ' + msg["msg"]);
+        io.emit('updt', msg);  // broadcast after receive
+    });
+
+    socket.on('disconnect', () => {
+        console.log('user disconnected');
+    });
 });
 
 server.listen(port, hostname, () => {
-  	console.log(`Server running at http://${hostname}:${port}`);
+    console.log(`Server running at http://${hostname}:${port}`);
 });
 
 
