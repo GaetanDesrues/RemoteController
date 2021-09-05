@@ -11,9 +11,9 @@ sio = socketio.AsyncClient()
 async def connect():
     log.info("connection established")
 
-    await emit("Hello")
-    # for i in range(300):
-    #     await emit(f"Coucou {i}")
+    # await emit("Hello")
+    for i in range(300):
+        await emit(f"Coucou {i}")
 
 
 @sio.event
