@@ -11,7 +11,6 @@ const server = http.createServer(app);
 // const io = new Server(server);
 const io = require('socket.io')(server, {
     cors: {
-        origin: "http://127.0.0.1:5011",
         methods: ["GET"],
         transports: ['websocket', 'polling'],
         credentials: true
