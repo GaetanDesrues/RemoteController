@@ -1,23 +1,30 @@
 import argparse
 import logging
-import os
-import socket
 
+import socketio
 import treefiles as tf
 from pyPS4Controller.controller import Controller
 
+sio = socketio.Client()
 
-def start_client(device_path):
-    location = os.environ["REM_IP"], int(os.environ["REM_PORT"])
-    opened_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    send = lambda x: opened_socket.sendto(bytes(x, "utf-8"), location)
+
+@sio.event
+def connect():
+    log.info("connection established")
 
     class MyController(Controller):
         def on_x_release(self):
-            send("X REL")
+            sio.emit("updt", {"x": 3, "y": 0})
 
     controller = MyController(interface=device_path)
     controller.listen()
+
+
+def start_client():
+    url = f"http://127.0.0.1:5011"
+
+    log.info(f"connecting to {url}")
+    sio.connect(url)
 
 
 log = logging.getLogger(__name__)
@@ -29,5 +36,6 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("device", type=str)
     args = parser.parse_args()
+    device_path = args.device
 
-    start_client(args.device)
+    start_client()

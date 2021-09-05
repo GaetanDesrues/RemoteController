@@ -11,9 +11,9 @@ sio = socketio.AsyncClient()
 async def connect():
     log.info("connection established")
 
-    # await emit("Hello")
-    for i in range(300):
-        await emit(f"Coucou {i}")
+    # await emit({"x": 2, "y": 0})
+    for i in range(5000):
+        await emit({"x": 3, "y": 0})
 
 
 @sio.event
@@ -28,8 +28,8 @@ async def emit(msg):
 
 
 async def main():
-    await sio.connect("https://loc.kerga.ga")
-    # await sio.connect("http://127.0.0.1:5011")
+    # await sio.connect("https://loc.kerga.ga")
+    await sio.connect("http://127.0.0.1:5011")
     await sio.wait()
 
 

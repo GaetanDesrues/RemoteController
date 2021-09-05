@@ -9,5 +9,5 @@ IMG=gdesrues/remote_controller
 # Build image
 docker build -t $IMG $ROOT/Client
 
-# Send to docker hub
-docker push $IMG:latest
+## Send to docker hub
+#docker push $IMG:latest

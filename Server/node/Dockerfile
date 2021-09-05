@@ -1,6 +1,5 @@
 FROM node
 
-
 ARG USER_NAME=cntrllr
 RUN useradd -ms /bin/bash $USER_NAME
 WORKDIR /home/$USER_NAME/app
